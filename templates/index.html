@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>PhishGuard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🛡️ PhishGuard
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">Dashboard</a>
+            <a href="/campaigns">Campaigns</a>
+            <a href="/users">Test Users</a>
+            <a href="/templates">Templates</a>
+            <a href="/reports">Reports</a>
+            
+
+        </div>
+
+    </nav>
+
+
+    <main class="container">
+
+        <section class="hero">
+
+            <div>
+
+                <span class="badge">
+                    ETHICAL SECURITY SIMULATION
+                </span>
+
+                <h1>
+                    Train people to
+                    <span>spot phishing.</span>
+                </h1>
+
+                <p>
+                    PhishGuard is an educational platform for
+                    simulating phishing scenarios, measuring
+                    security awareness, and improving
+                    cybersecurity habits.
+                </p>
+
+                <a href="/create-campaign"
+                    class="primary-btn">
+                    + Create Campaign
+                </a>
+
+                <a href="/reports"
+                    class="secondary-btn">
+                    View Reports
+                </a>
+
+            </div>
+
+
+            <div class="shield-card">
+
+                <div class="shield">
+                    🛡️
+                </div>
+
+                <h3>
+                    Security Awareness
+                </h3>
+
+                <p>
+                    Simulate. Analyze. Educate.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="stats">
+
+            <div class="stat-card">
+                <strong>{{ campaigns }}</strong>
+                <span>Campaigns</span>
+            </div>
+
+            <div class="stat-card">
+                <strong>{{ users }}</strong>
+                <span>Test Users</span>
+            </div>
+
+            <div class="stat-card">
+                <strong>{{ click_rate }}%</strong>
+                <span>Click Rate</span>
+            </div>
+
+            <div class="stat-card">
+                <strong>{{ training_completed }}</strong>
+                <span>Training Completed</span>
+            </div>
+
+            <div class="stat-card">
+                <strong>{{ risk_events }}</strong>
+                <span>Total Events</span>
+            </div>
+
+        </section>
+
+
+        <section class="info-card">
+
+            <h2>
+                How PhishGuard Works
+            </h2>
+
+            <div class="steps">
+
+                <div>
+                    <b>01 — Create</b>
+                    <p>
+                        Create a controlled phishing simulation.
+                    </p>
+                </div>
+
+                <div>
+                    <b>02 — Simulate</b>
+                    <p>
+                        Let test users interact with the scenario.
+                    </p>
+                </div>
+
+                <div>
+                    <b>03 — Analyze</b>
+                    <p>
+                        Measure clicks and reported events.
+                    </p>
+                </div>
+
+                <div>
+                    <b>04 — Educate</b>
+                    <p>
+                        Teach users how to recognize phishing.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        PhishGuard © 2026 · Ethical Cybersecurity Training Platform
+
+    </footer>
+
+</body>
+
+</html>

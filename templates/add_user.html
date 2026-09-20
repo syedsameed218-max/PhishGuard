@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Test User | PhishGuard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🛡️ PhishGuard
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">Dashboard</a>
+            <a href="/campaigns">Campaigns</a>
+            <a href="/users">Test Users</a>
+            <a href="/templates">Templates</a>
+            <a href="/reports">Reports</a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="container">
+
+        <div class="form-page">
+
+            <div class="form-heading">
+
+                <span class="badge">
+                    TEST USERS
+                </span>
+
+                <h1>Add Test User</h1>
+
+                <p>
+                    Add an authorized local identity for
+                    controlled security-awareness testing.
+                </p>
+
+            </div>
+
+
+            <form method="POST"
+                  action="/add-user"
+                  class="campaign-form">
+
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="e.g. Demo User"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="e.g. demo@localhost"
+                        required>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <a href="/users"
+                       class="cancel-btn">
+                        Cancel
+                    </a>
+
+                    <button type="submit"
+                            class="primary-btn">
+                        Add Test User
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

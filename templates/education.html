@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Training Feedback | PhishGuard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body class="simulation-body">
+
+    <div class="simulation-wrapper">
+
+        <div class="simulation-banner">
+            🛡️ PHISHGUARD SECURITY AWARENESS
+        </div>
+
+
+        <div class="education-card">
+
+            <div class="education-icon">
+                🛡️
+            </div>
+
+            <span class="badge">
+                TRAINING COMPLETE
+            </span>
+
+
+            {% if campaign["template"] == "Suspicious Login Alert" %}
+
+                <h1>
+                    Suspicious Login Alert
+                </h1>
+
+                <p class="education-intro">
+                    This was a simulated suspicious-login message.
+                    The exercise demonstrates how attackers may use
+                    unexpected security alerts to encourage quick
+                    actions.
+                </p>
+
+                <div class="warning-list">
+
+                    <div class="warning-item">
+                        <strong>01 — Unexpected login alert</strong>
+                        <p>
+                            Be cautious when receiving an unexpected
+                            notification about a login or account activity.
+                        </p>
+                    </div>
+
+                    <div class="warning-item">
+                        <strong>02 — Urgency</strong>
+                        <p>
+                            Messages that pressure you to act immediately
+                            should be examined carefully.
+                        </p>
+                    </div>
+
+                    <div class="warning-item">
+                        <strong>03 — Check the sender</strong>
+                        <p>
+                            Verify the sender address and domain before
+                            trusting a security-related message.
+                        </p>
+                    </div>
+
+                    <div class="warning-item">
+                        <strong>04 — Verify independently</strong>
+                        <p>
+                            If you receive a security alert, access the
+                            official service directly instead of relying
+                            on an unexpected link.
+                        </p>
+                    </div>
+
+                </div>
+
+
+            {% elif campaign["template"] == "Password Expiration Notice" %}
+
+                <h1>
+                    Password Expiration Notice
+                </h1>
+
+                <p class="education-intro">
+                    This was a simulated password-expiration message.
+                    Password-related notifications can be convincing
+                    because they create a sense of urgency.
+                </p>
+
+                <div class="warning-list">
+
+                    <div class="warning-item">
+                        <strong>01 — Expiration pressure</strong>
+                        <p>
+                            Be careful when a message claims that your
+                            password will expire soon and demands quick action.
+                        </p>
+                    </div>
+
+                    <div class="warning-item">
+                        <strong>02 — Verify the sender</strong>
+                        <p>
+                            Check whether the message actually comes from
+                            the organization responsible for your account.
+                        </p>
+                    </div>
+
+                    <div class="warning-item">
+                        <strong>03 — Check the destination</strong>
+                        <p>
+                            Inspect links carefully and avoid unexpected
+                            destinations.
+                        </p>
+                    </div>
+
+                    <div class="warning-item">
+                        <strong>04 — Never share your password</strong>
+                        <p>
+                            A legitimate security process should not require
+                            you to reveal your existing password through an
+                            unexpected message.
+                        </p>
+                    </div>
+
+                </div>
+
+
+            {% elif campaign["template"] == "Account Security Notice" %}
+
+                <h1>
+                    Account Security Notice
+                </h1>
+
+                <p class="education-intro">
+                    This was a simulated account-security notification.
+                    Security messages should always be verified before
+                    taking action.
+                </p>
+
+                <div class="warning-list">
+
+                    <div class="warning-item">
+                        <strong>01 — Unexpected activity</strong>
+                        <p>
+                            Treat unexpected claims about account activity
+                            with caution.
+                        </p>
+                    </div>
+
+                    <div class="warning-item">
+                        <strong>02 — Verify the source</strong>
+                        <p>
+                            Check the sender address and make sure the
+                            message comes from a trusted organization.
+                        </p>
+                    </div>
+
+                    <div class="warning-item">
+                        <strong>03 — Avoid rushed decisions</strong>
+                        <p>
+                            Take time to verify a security request instead
+                            of reacting immediately.
+                        </p>
+                    </div>
+
+                    <div class="warning-item">
+                        <strong>04 — Use official channels</strong>
+                        <p>
+                            When in doubt, open the official website or
+                            application yourself and check your account there.
+                        </p>
+                    </div>
+
+                </div>
+
+
+            {% elif campaign["template"] == "Security Awareness Training" %}
+
+                <h1>
+                    Security Awareness Training
+                </h1>
+
+                <p class="education-intro">
+                    This was a general cybersecurity awareness exercise.
+                    The goal is to develop habits that help identify
+                    suspicious messages.
+                </p>
+
+                <div class="warning-list">
+
+                    <div class="warning-item">
+                        <strong>01 — Stop and think</strong>
+                        <p>
+                            Don't immediately act on unexpected messages,
+                            especially when they create pressure.
+                        </p>
+                    </div>
+
+                    <div class="warning-item">
+                        <strong>02 — Check the sender</strong>
+                        <p>
+                            Verify the sender's address and domain before
+                            trusting the message.
+                        </p>
+                    </div>
+
+                    <div class="warning-item">
+                        <strong>03 — Inspect links</strong>
+                        <p>
+                            Be cautious with unexpected links and verify
+                            where they lead before opening them.
+                        </p>
+                    </div>
+
+                    <div class="warning-item">
+                        <strong>04 — Protect sensitive information</strong>
+                        <p>
+                            Never provide passwords or other sensitive
+                            information in response to an unexpected request.
+                        </p>
+                    </div>
+
+                </div>
+
+            {% endif %}
+
+
+            <p class="email-note">
+                No real credentials were collected.
+                This exercise was conducted as an authorized
+                cybersecurity awareness simulation.
+            </p>
+
+
+            <a href="/" class="primary-btn">
+                Return to Dashboard
+            </a>
+
+        </div>
+
+
+        <p class="simulation-footer">
+            PhishGuard Ethical Security Training Platform
+        </p>
+
+    </div>
+
+</body>
+
+</html>

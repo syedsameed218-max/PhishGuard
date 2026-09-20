@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Security Notification | PhishGuard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body class="simulation-body">
+
+
+    <div class="simulation-wrapper">
+
+        <div class="simulation-banner">
+            🔐 PHISHGUARD TRAINING SIMULATION
+        </div>
+
+
+        <div class="email-window">
+
+            <div class="email-header">
+
+                <div class="email-logo">
+                    Security Center
+                </div>
+
+                <span class="training-label">
+                    TRAINING
+                </span>
+
+            </div>
+
+
+            <div class="email-meta">
+
+                <strong>
+                    Security Notification
+                </strong>
+
+                <p>
+                    To: {{ user["email"] }}
+                </p>
+
+                <p>
+                    From: security-alert@training.local
+                </p>
+
+            </div>
+
+
+            <div class="email-content">
+
+                <h2>
+                    Suspicious login detected
+                </h2>
+
+                <p>
+                    We detected a recent sign-in attempt
+                    that requires your attention.
+                </p>
+
+                <p>
+                    Please review the activity using the
+                    button below.
+                </p>
+
+
+                <a href="/simulation/{{ campaign['id'] }}/{{ user['id'] }}/click"
+                   class="simulation-button">
+                    Review Activity
+                </a>
+
+
+                <p class="email-note">
+                    This message is part of an authorized
+                    cybersecurity awareness exercise.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <p class="simulation-footer">
+            PhishGuard Ethical Security Training Platform
+        </p>
+
+    </div>
+
+</body>
+
+</html>

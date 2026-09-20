@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Launch Simulation | PhishGuard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🛡️ PhishGuard
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Dashboard</a>
+            <a href="/campaigns">Campaigns</a>
+            <a href="/users">Test Users</a>
+            <a href="/templates">Templates</a>
+            <a href="/reports">Reports</a>
+        </div>
+
+    </nav>
+
+
+    <main class="container">
+
+        <div class="form-page">
+
+            <div class="form-heading">
+
+                <span class="badge">
+                    SIMULATION
+                </span>
+
+                <h1>Launch Simulation</h1>
+
+                <p>
+                    Select an authorized test user for this
+                    controlled security-awareness exercise.
+                </p>
+
+            </div>
+
+
+            <div class="campaign-form">
+
+                <h3>{{ campaign["name"] }}</h3>
+
+                <p class="muted">
+                    Template: {{ campaign["template"] }}
+                </p>
+
+
+                <form method="POST"
+                      action="/launch/{{ campaign['id'] }}">
+
+                    <div class="form-group">
+
+                        <label for="user_id">
+                            Select Test User
+                        </label>
+
+                        <select id="user_id"
+                                name="user_id"
+                                required>
+
+                            <option value="">
+                                Select a test user
+                            </option>
+
+                            {% for user in users %}
+
+                                <option value="{{ user['id'] }}">
+                                    {{ user['name'] }}
+                                    — {{ user['email'] }}
+                                </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-actions">
+
+                        <a href="/campaigns"
+                           class="cancel-btn">
+                            Cancel
+                        </a>
+
+                        <button type="submit"
+                                class="primary-btn">
+                            Launch Simulation
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Templates | PhishGuard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🛡️ PhishGuard
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">Dashboard</a>
+            <a href="/campaigns">Campaigns</a>
+            <a href="/users">Test Users</a>
+            <a href="/templates">Templates</a>
+            <a href="/reports">Reports</a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="container">
+
+        <div class="form-page">
+
+            <div class="form-heading">
+
+                <span class="badge">
+                    SIMULATION TEMPLATES
+                </span>
+
+                <h1>Training Templates</h1>
+
+                <p>
+                    Choose from safe, controlled scenarios
+                    for authorized security-awareness training.
+                </p>
+
+            </div>
+
+
+            <div class="template-grid">
+
+    <a href="/create-campaign?template=Suspicious%20Login%20Alert"
+   class="template-card">
+
+    <div class="template-icon">🔐</div>
+
+    <h3>Suspicious Login Alert</h3>
+
+    <p>
+        A simulated security notification designed to teach
+        users to verify unexpected login alerts.
+    </p>
+
+    <span class="template-tag">
+        Account Security
+    </span>
+
+</a>
+
+
+<a href="/create-campaign?template=Password%20Expiration%20Notice"
+   class="template-card">
+
+    <div class="template-icon">🔑</div>
+
+    <h3>Password Expiration Notice</h3>
+
+    <p>
+        Helps users recognize suspicious password-expiration
+        requests and verify links before interacting.
+    </p>
+
+    <span class="template-tag">
+        Password Awareness
+    </span>
+
+</a>
+
+
+<a href="/create-campaign?template=Account%20Security%20Notice"
+   class="template-card">
+
+    <div class="template-icon">🛡️</div>
+
+    <h3>Account Security Notice</h3>
+
+    <p>
+        A controlled scenario focused on identifying
+        unexpected account security messages.
+    </p>
+
+    <span class="template-tag">
+        Security Awareness
+    </span>
+
+</a>
+
+
+<a href="/create-campaign?template=Security%20Awareness%20Training"
+   class="template-card">
+
+    <div class="template-icon">📢</div>
+
+    <h3>Security Awareness Training</h3>
+
+    <p>
+        A general training scenario for practicing phishing
+        recognition and safe decision-making.
+    </p>
+
+    <span class="template-tag">
+        General Training
+    </span>
+
+</a>
+
+</div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

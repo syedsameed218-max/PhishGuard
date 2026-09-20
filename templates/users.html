@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Test Users | PhishGuard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🛡️ PhishGuard
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">Dashboard</a>
+            <a href="/campaigns">Campaigns</a>
+            <a href="/users">Test Users</a>
+            <a href="/templates">Templates</a>
+            <a href="/reports">Reports</a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="container">
+
+        <div class="form-page">
+
+            <div class="form-heading">
+
+                <span class="badge">
+                    TEST USERS
+                </span>
+
+                <h1>Authorized Test Users</h1>
+
+                <p>
+                    Manage local users who are authorized
+                    to participate in security-awareness
+                    simulations.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="card-header-row">
+
+                    <div>
+                        <h2>Users</h2>
+
+                        <p class="muted">
+                            {{ users|length }} test users
+                        </p>
+                    </div>
+
+                    <a href="/add-user"
+                       class="primary-btn">
+                        + Add Test User
+                    </a>
+
+                </div>
+
+
+                {% if users %}
+
+                    <div class="user-list">
+
+                        {% for user in users %}
+
+                            <div class="user-card">
+
+                                <div class="user-avatar">
+                                    {{ user["name"][0]|upper }}
+                                </div>
+
+                                <div class="user-info">
+
+                                    <h3>
+                                        {{ user["name"] }}
+                                    </h3>
+
+                                    <p>
+                                        {{ user["email"] }}
+                                    </p>
+
+                                    <small>
+                                        Added:
+                                        {{ user["created_at"] }}
+                                    </small>
+
+                                </div>
+
+                                <span class="user-status">
+                                    Authorized
+                                </span>
+
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                {% else %}
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            👥
+                        </div>
+
+                        <h3>
+                            No test users yet
+                        </h3>
+
+                        <p>
+                            Add an authorized test user
+                            to begin a simulation.
+                        </p>
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

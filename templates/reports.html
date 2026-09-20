@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Reports | PhishGuard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🛡️ PhishGuard
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Dashboard</a>
+            <a href="/campaigns">Campaigns</a>
+            <a href="/users">Test Users</a>
+            <a href="/templates">Templates</a>
+            <a href="/reports">Reports</a>
+        </div>
+
+    </nav>
+
+
+    <main class="container">
+
+        <div class="form-page">
+
+            <div class="form-heading">
+
+                <span class="badge">
+                    ANALYTICS
+                </span>
+
+                <h1>Security Awareness Reports</h1>
+
+                <p>
+                    Review activity from your authorized
+                    phishing-awareness simulations.
+                </p>
+
+            </div>
+
+
+            <!-- SUMMARY -->
+
+            <section class="report-stats">
+
+                <div class="report-stat">
+
+                    <span>Total Campaigns</span>
+
+                    <strong>
+                        {{ total_campaigns }}
+                    </strong>
+
+                </div>
+
+
+                <div class="report-stat">
+
+                    <span>Test Users</span>
+
+                    <strong>
+                        {{ total_users }}
+                    </strong>
+
+                </div>
+
+
+                <div class="report-stat">
+
+                    <span>Emails Opened</span>
+
+                    <strong>
+                        {{ emails_opened }}
+                    </strong>
+
+                </div>
+
+
+                <div class="report-stat">
+
+                    <span>Links Clicked</span>
+
+                    <strong>
+                        {{ links_clicked }}
+                    </strong>
+
+                </div>
+
+                <div class="report-stat">
+                    <span>Training Completed</span>
+                    <strong>
+                        {{ training_completed }}
+                    </strong>
+                </div>
+
+            </section>
+
+
+            <!-- CLICK RATE -->
+
+            <div class="report-highlight">
+
+                <div>
+
+                    <span>
+                        Overall Click Rate
+                    </span>
+
+                    <strong>
+                        {{ click_rate }}%
+                    </strong>
+
+                </div>
+
+                <div>
+                    <span>
+                        Training Completion Rate
+                    </span>
+
+                    <strong>
+                        {{ completion_rate }}%
+                    </strong>
+                </div>
+
+                <div class="rate-description">
+
+                    {% if click_rate == 0 %}
+
+                        No simulated links have been
+                        clicked yet.
+
+                    {% elif click_rate < 30 %}
+
+                        Continue reinforcing phishing
+                        awareness practices.
+
+                    {% else %}
+
+                        Additional security-awareness
+                        training may be useful.
+
+                    {% endif %}
+
+                    {% if training_completed == 0 %}
+
+                        No training sessions have been completed yet.
+
+                    {% else %}
+
+                        {{ training_completed }}
+                        training session(s) completed successfully.
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+            <!-- CAMPAIGN REPORT -->
+
+            <div class="info-card">
+
+                <h2>Campaign Activity</h2>
+
+                <div class="campaign-report-list">
+
+                    {% if campaign_reports %}
+
+                        {% for report in campaign_reports %}
+
+                            <div class="campaign-report">
+
+                                <div>
+
+                                    <h3>
+                                        {{ report["name"] }}
+                                    </h3>
+
+                                    <p>
+                                        {{ report["template"] }}
+                                    </p>
+
+                                </div>
+
+
+                                <div class="report-numbers">
+
+                                    <div>
+                                        <strong>
+                                            {{ report["opened"] }}
+                                        </strong>
+
+                                        <span>
+                                            Opened
+                                        </span>
+                                    </div>
+
+
+                                    <div>
+                                        <strong>
+                                            {{ report["clicked"] }}
+                                        </strong>
+
+                                        <span>
+                                            Clicked
+                                        </span>
+                                    </div>
+
+                                    <div>
+                                        <strong>
+                                            {{ report["completed"] }}
+                                        </strong>
+                                        <span>
+                                            Completed
+                                        </span>
+                                    </div>
+
+                                </div>
+
+
+                                <span class="status">
+                                    {{ report["status"] }}
+                                </span>
+
+                            </div>
+
+                        {% endfor %}
+
+                    {% else %}
+
+                        <div class="empty-state">
+
+                            <h3>
+                                No campaign activity yet
+                            </h3>
+
+                            <p>
+                                Launch a simulation to generate
+                                analytics.
+                            </p>
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

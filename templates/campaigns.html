@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Campaigns | PhishGuard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🛡️ PhishGuard
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">Dashboard</a>
+            <a href="/campaigns">Campaigns</a>
+            <a href="/users">Test Users</a>
+            <a href="/templates">Templates</a>
+            <a href="/reports">Reports</a>
+        </div>
+
+    </nav>
+
+
+    <main class="container">
+
+        <div class="form-page">
+
+            <div class="form-heading">
+
+                <span class="badge">
+                    CAMPAIGNS
+                </span>
+
+                <h1>Simulation Campaigns</h1>
+
+                <p>
+                    Manage your authorized phishing-awareness
+                    simulations.
+                </p>
+
+            </div>
+
+
+            {% if campaigns %}
+
+                {% for campaign in campaigns %}
+
+                    <div class="campaign-card">
+
+                        <div>
+
+                            <h3>
+                                {{ campaign["name"] }}
+                            </h3>
+
+                            <p>
+                                {{ campaign["template"] }}
+                            </p>
+
+                            <small>
+                                Created:
+                                {{ campaign["created_at"] }}
+                            </small>
+
+                        </div>
+
+
+                        
+                        <div class="campaign-actions">
+
+                            <span class="status">
+                                {{ campaign["status"] }}
+                            </span>
+
+
+                        {% if campaign["status"] == "Draft" %}
+
+                            <form method="POST"
+                                action="/campaign/{{ campaign['id'] }}/status">
+
+                                <input type="hidden"
+                                 name="status"
+                                value="Active">
+
+                                <button type="submit"
+                                class="action-btn activate-btn">
+                                Activate
+                                </button>
+
+                            </form>
+
+                        {% elif campaign["status"] == "Active" %}
+
+                            <form method="POST"
+                                action="/campaign/{{ campaign['id'] }}/status">
+
+                                <input type="hidden"
+                                name="status"
+                                value="Completed">
+
+                                <button type="submit"
+                                class="action-btn complete-btn">
+                                Complete
+                                </button>
+
+                            </form>
+
+                        {% endif %}
+
+
+                            {% if campaign["status"] != "Completed" %}
+
+                                <a href="/launch/{{ campaign['id'] }}"
+                                    class="action-btn launch-btn">
+                                     Launch
+                                </a>
+
+                            {% endif %}
+
+
+                                <a href="/campaign/{{ campaign['id'] }}/events"
+                                    class="action-btn events-btn">
+                                    Events
+                                </a>
+
+</div>
+
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <div class="info-card empty-state">
+
+                    <div class="empty-icon">
+                        📨
+                    </div>
+
+                    <h3>
+                        No campaigns yet
+                    </h3>
+
+                    <p>
+                        Create your first simulation campaign
+                        to get started.
+                    </p>
+
+                    <br>
+
+                    <a href="/create-campaign"
+                       class="primary-btn">
+                        + Create Campaign
+                    </a>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

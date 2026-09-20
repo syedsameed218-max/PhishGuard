@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Create Campaign | PhishGuard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🛡️ PhishGuard
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">Dashboard</a>
+            <a href="/campaigns">Campaigns</a>
+            <a href="/users">Test Users</a>
+            <a href="/templates">Templates</a>
+            <a href="/reports">Reports</a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="container">
+
+        <div class="form-page">
+
+            <div class="form-heading">
+
+                <span class="badge">
+                    CAMPAIGN MANAGEMENT
+                </span>
+
+                <h1>Create Simulation Campaign</h1>
+
+                <p>
+                    Create a controlled phishing-awareness
+                    simulation for authorized test users.
+                </p>
+
+            </div>
+
+
+            <form method="POST"
+                  action="/create-campaign"
+                  class="campaign-form">
+
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Campaign Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="e.g. Security Awareness Test"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="template">
+                        Simulation Template
+                    </label>
+
+                    <select id="template"
+        name="template"
+        required>
+
+    <option value="" disabled
+        {% if selected_template == "" %}selected{% endif %}>
+        Select a training template
+    </option>
+
+    <option value="Suspicious Login Alert"
+        {% if selected_template == "Suspicious Login Alert" %}selected{% endif %}>
+        🔐 Suspicious Login Alert
+    </option>
+
+    <option value="Password Expiration Notice"
+        {% if selected_template == "Password Expiration Notice" %}selected{% endif %}>
+        🔑 Password Expiration Notice
+    </option>
+
+    <option value="Account Security Notice"
+        {% if selected_template == "Account Security Notice" %}selected{% endif %}>
+        🛡️ Account Security Notice
+    </option>
+
+    <option value="Security Awareness Training"
+        {% if selected_template == "Security Awareness Training" %}selected{% endif %}>
+        📢 Security Awareness Training
+    </option>
+
+</select>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <a href="/" class="cancel-btn">
+                        Cancel
+                    </a>
+
+                    <button type="submit"
+                            class="primary-btn">
+                        Create Campaign
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        PhishGuard © 2026 · Ethical Cybersecurity Training Platform
+
+    </footer>
+
+</body>
+
+</html>
